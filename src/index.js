@@ -3,12 +3,12 @@
 
 module.exports = function towelSort (matrix) {
   if (!matrix || !matrix.length) return [];
-  
-  const res = [];
 
   for (let i = 0, l = matrix.length; i < l; i++) {
-    res[i] = i % 2 ? matrix[i].reverse() : matrix[i];    
+    if (i % 2) {
+      matrix[i] = matrix[i].reverse();
+    }
   }
-  
-  return res.toString().split(',');
+
+  return matrix.flat();
 }
